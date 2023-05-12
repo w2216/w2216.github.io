@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IDEA激活工具</title>
-    <url>/projects/1812434335/</url>
-    <content><![CDATA[<h1 id="IDEA激活工具"><a href="#IDEA激活工具" class="headerlink" title="IDEA激活工具"></a>IDEA激活工具</h1><p>实测<code>win</code>、<code>mac</code>均可用</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>感谢<a href="https://jetbra.in/s">热心大佬</a>提供的工具</p>
-<p>下载，运行脚本，复制<code>key</code>，激活</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Navicat激活工具</title>
     <url>/projects/2193428951/</url>
     <content><![CDATA[<h1 id="Navicat激活工具"><a href="#Navicat激活工具" class="headerlink" title="Navicat激活工具"></a>Navicat激活工具</h1><p>实测<code>win</code>、<code>mac</code>均可用</p>
 <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 下载(阿里云盘)</span><br><span class="line">2. `win`关闭杀毒软件，以管理员运行`Navicat Keygen Patch v5.6.0.exe`</span><br><span class="line">3. NKP5.6: Patch</span><br><span class="line">4. NKP5.6: Generate</span><br><span class="line">5. 复制 Kengen 到 Navicat15 里注册</span><br><span class="line">6. Navicat15: 手动激活</span><br><span class="line">7. 复制请求码到 NKP5.6 中</span><br><span class="line">8. NKP5.6: Generate</span><br><span class="line">9. Copy 值到 Navicat15 中，点击确定</span><br></pre></td></tr></table></figure>
 
+]]></content>
+  </entry>
+  <entry>
+    <title>IDEA激活工具</title>
+    <url>/projects/1812434335/</url>
+    <content><![CDATA[<h1 id="IDEA激活工具"><a href="#IDEA激活工具" class="headerlink" title="IDEA激活工具"></a>IDEA激活工具</h1><p>实测<code>win</code>、<code>mac</code>均可用</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>感谢<a href="https://jetbra.in/s">热心大佬</a>提供的工具</p>
+<p>下载，运行脚本，复制<code>key</code>，激活</p>
 ]]></content>
   </entry>
   <entry>
@@ -32,6 +32,43 @@
 </ol>
 <p>记录一个<code>bug</code><br><code>typora</code> 写<code>markdown code</code>一行如果为空, 会出现空白行问题<br>解决方法: </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\node_modules\hexo-util\lib\highlight.js</span><br><span class="line">54行</span><br><span class="line">result += `&lt;td class=&quot;code&quot;&gt;$&#123;before&#125;$&#123;content&#125; $&#123;after&#125;&lt;/td&gt;&lt;/tr&gt;`;</span><br><span class="line">加一个空格</span><br><span class="line">$&#123;content&#125; $&#123;after&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>使用Let&#39;s Encrypt的acme.sh申请泛域名证书</title>
+    <url>/projects/713541237/</url>
+    <content><![CDATA[<h1 id="使用Let’s-Encrypt的acme-sh申请泛域名证书"><a href="#使用Let’s-Encrypt的acme-sh申请泛域名证书" class="headerlink" title="使用Let’s Encrypt的acme.sh申请泛域名证书"></a>使用Let’s Encrypt的acme.sh申请泛域名证书</h1><p>Let’s Encrypt是一个非常不错的域名证书机构，致力于普及https，现在早已能够签发泛域名证书（俗称“野卡”），而且还是免费的，要知道其它机构的泛域名证书可贵的很。<br>下面就简单介绍一下如何申请Let’s Encrypt证书。  </p>
+<h2 id="安装acme-sh："><a href="#安装acme-sh：" class="headerlink" title="安装acme.sh："></a>安装acme.sh：</h2><p>在Linux下在线安装脚本，使用以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O - https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改默认证书"><a href="#更改默认证书" class="headerlink" title="更改默认证书"></a>更改默认证书</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --set-default-ca  --server  letsencrypt</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><h3 id="域名提供商api自动解析"><a href="#域名提供商api自动解析" class="headerlink" title="域名提供商api自动解析"></a>域名提供商api自动解析</h3><p>腾讯</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export DP_Id=&quot;111111111111&quot;  </span><br><span class="line">export DP_Key=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
+<p>阿里</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export Ali_Key=&quot;111111111111&quot;  </span><br><span class="line">export Ali_Secret=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="生成证书-1"><a href="#生成证书-1" class="headerlink" title="生成证书"></a>生成证书</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --issue --dns dns_ali  -d aabbcc.cn -d *.aabbcc.cn</span><br></pre></td></tr></table></figure>
+<h2 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h2><p>主域名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --install-cert -d aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
+<p>泛域名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --install-cert -d *.aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/1.key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/1.fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><p>主域名配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他二级域名配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/222.aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  222.aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/222.aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name 222.aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/1.fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/1.key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://222.aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.panyanbin.com/article/c44653d8.html">使用ACME申请证书（证书自动续期）</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>VirtualBox7虚拟机安装ubuntu18.04</title>
+    <url>/projects/2448027170/</url>
+    <content><![CDATA[<h1 id="VirtualBox7虚拟机安装ubuntu18-04"><a href="#VirtualBox7虚拟机安装ubuntu18-04" class="headerlink" title="VirtualBox7虚拟机安装ubuntu18.04"></a>VirtualBox7虚拟机安装ubuntu18.04</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://www.virtualbox.org/">VirtualBox7</a><br><a href="https://cn.ubuntu.com/download/server/step1#downloads">ubuntu18.04</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下一步 -&gt; 下一步</p>
+<h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/netplan/00-installer-config.yaml</span><br><span class="line"></span><br><span class="line">network:</span><br><span class="line">  ethernets:</span><br><span class="line">    enp0s3:</span><br><span class="line">      dhcp4: false</span><br><span class="line">      addresses: [192.168.7.109/24]</span><br><span class="line">      gateway4: 192.168.7.1</span><br><span class="line">      nameservers:</span><br><span class="line">              addresses: [8.8.8.8,114.114.114.114]</span><br><span class="line">  version: 2</span><br></pre></td></tr></table></figure>
+<h2 id="配置远程登录"><a href="#配置远程登录" class="headerlink" title="配置远程登录"></a>配置远程登录</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.检查openssh-server服务</span><br><span class="line">2.安装ssh服务：apt-get install openssh-server</span><br><span class="line">3.修改ssh配置文件</span><br><span class="line"></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">Port 22 #取消该行注释</span><br><span class="line">LoginGraceTime 2m # 取消该行注释</span><br><span class="line">PermitRootLogin yes #取消该行注释，将prohibit-password修改为yes</span><br><span class="line">StrictModes yes # 取消该行注释</span><br><span class="line">MaxAuthTries 6 #取消该行注释</span><br><span class="line">MaxSessions 10 # 取消该行注释</span><br><span class="line"></span><br><span class="line">3.启动或重启服务</span><br><span class="line">systemctl restart ssh</span><br><span class="line">systemctl enable ssh</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>nginx配置</title>
@@ -67,35 +104,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>使用Let&#39;s Encrypt的acme.sh申请泛域名证书</title>
-    <url>/projects/713541237/</url>
-    <content><![CDATA[<h1 id="使用Let’s-Encrypt的acme-sh申请泛域名证书"><a href="#使用Let’s-Encrypt的acme-sh申请泛域名证书" class="headerlink" title="使用Let’s Encrypt的acme.sh申请泛域名证书"></a>使用Let’s Encrypt的acme.sh申请泛域名证书</h1><p>Let’s Encrypt是一个非常不错的域名证书机构，致力于普及https，现在早已能够签发泛域名证书（俗称“野卡”），而且还是免费的，要知道其它机构的泛域名证书可贵的很。<br>下面就简单介绍一下如何申请Let’s Encrypt证书。  </p>
-<h2 id="安装acme-sh："><a href="#安装acme-sh：" class="headerlink" title="安装acme.sh："></a>安装acme.sh：</h2><p>在Linux下在线安装脚本，使用以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O - https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改默认证书"><a href="#更改默认证书" class="headerlink" title="更改默认证书"></a>更改默认证书</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --set-default-ca  --server  letsencrypt</span><br></pre></td></tr></table></figure>
-
-<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><h3 id="域名提供商api自动解析"><a href="#域名提供商api自动解析" class="headerlink" title="域名提供商api自动解析"></a>域名提供商api自动解析</h3><p>腾讯</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export DP_Id=&quot;111111111111&quot;  </span><br><span class="line">export DP_Key=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
-<p>阿里</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export Ali_Key=&quot;111111111111&quot;  </span><br><span class="line">export Ali_Secret=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="生成证书-1"><a href="#生成证书-1" class="headerlink" title="生成证书"></a>生成证书</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --issue --dns dns_ali  -d aabbcc.cn -d *.aabbcc.cn</span><br></pre></td></tr></table></figure>
-<h2 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h2><p>主域名</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --install-cert -d aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
-<p>泛域名</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">acme.sh --install-cert -d *.aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/1.key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/1.fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><p>主域名配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他二级域名配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/222.aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  222.aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/222.aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name 222.aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/1.fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/1.key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://222.aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.panyanbin.com/article/c44653d8.html">使用ACME申请证书（证书自动续期）</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Docker和Docker-compose安装</title>
     <url>/projects/495513159/</url>
     <content><![CDATA[<h1 id="Docker和Docker-compose安装"><a href="#Docker和Docker-compose安装" class="headerlink" title="Docker和Docker-compose安装"></a>Docker和Docker-compose安装</h1><h2 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h2><h3 id="卸载老版本docker"><a href="#卸载老版本docker" class="headerlink" title="卸载老版本docker"></a>卸载老版本docker</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io</span><br></pre></td></tr></table></figure>
@@ -116,12 +124,27 @@
 ]]></content>
   </entry>
   <entry>
-    <title>VirtualBox7虚拟机安装ubuntu18.04</title>
-    <url>/projects/2448027170/</url>
-    <content><![CDATA[<h1 id="VirtualBox7虚拟机安装ubuntu18-04"><a href="#VirtualBox7虚拟机安装ubuntu18-04" class="headerlink" title="VirtualBox7虚拟机安装ubuntu18.04"></a>VirtualBox7虚拟机安装ubuntu18.04</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://www.virtualbox.org/">VirtualBox7</a><br><a href="https://cn.ubuntu.com/download/server/step1#downloads">ubuntu18.04</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下一步 -&gt; 下一步</p>
-<h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/netplan/00-installer-config.yaml</span><br><span class="line"></span><br><span class="line">network:</span><br><span class="line">  ethernets:</span><br><span class="line">    enp0s3:</span><br><span class="line">      dhcp4: false</span><br><span class="line">      addresses: [192.168.7.109/24]</span><br><span class="line">      gateway4: 192.168.7.1</span><br><span class="line">      nameservers:</span><br><span class="line">              addresses: [8.8.8.8,114.114.114.114]</span><br><span class="line">  version: 2</span><br></pre></td></tr></table></figure>
-<h2 id="配置远程登录"><a href="#配置远程登录" class="headerlink" title="配置远程登录"></a>配置远程登录</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.检查openssh-server服务</span><br><span class="line">2.安装ssh服务：apt-get install openssh-server</span><br><span class="line">3.修改ssh配置文件</span><br><span class="line"></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">Port 22 #取消该行注释</span><br><span class="line">LoginGraceTime 2m # 取消该行注释</span><br><span class="line">PermitRootLogin yes #取消该行注释，将prohibit-password修改为yes</span><br><span class="line">StrictModes yes # 取消该行注释</span><br><span class="line">MaxAuthTries 6 #取消该行注释</span><br><span class="line">MaxSessions 10 # 取消该行注释</span><br><span class="line"></span><br><span class="line">3.启动或重启服务</span><br><span class="line">systemctl restart ssh</span><br><span class="line">systemctl enable ssh</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Docker安装Jenkins和Jenkins部署nextjs项目</title>
+    <url>/projects/1430739081/</url>
+    <content><![CDATA[<h1 id="Docker安装Jenkins和Jenkins部署nextjs项目"><a href="#Docker安装Jenkins和Jenkins部署nextjs项目" class="headerlink" title="Docker安装Jenkins和Jenkins部署nextjs项目"></a>Docker安装Jenkins和Jenkins部署nextjs项目</h1><p>因阿里云轻量服务器(<code>1H2G</code>)性能不太行, 顾采用虚拟机编译</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /root/docker/jenkins</span><br><span class="line">cd /root/docker/jenkins</span><br><span class="line"></span><br><span class="line">vim docker-compose.yml</span><br><span class="line">version: &quot;2&quot;</span><br><span class="line">services:</span><br><span class="line">  jenkins:</span><br><span class="line">    image: jenkins/jenkins:lts</span><br><span class="line">    container_name: &#x27;jenkins&#x27;</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 19280:8080</span><br><span class="line">      - 19281:50000</span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/var/jenkins_home</span><br><span class="line">      - /etc/localtime:/etc/localtime</span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>账号:<code>admin</code><br>密码:<code>cat data/secrets/initialAdminPassword</code></p>
+<p>第一次启动不用安装插件, 进去后需要什么自己安装</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>安装中文插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">manage(系统管理) -&gt; pluginManager(插件管理)</span><br><span class="line">available</span><br><span class="line">搜索 中文</span><br><span class="line">安装</span><br></pre></td></tr></table></figure>
+<p>重启jenkins<code>docker-compose restart</code></p>
+<p>安装插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GitHub plugin</span><br><span class="line">Git Parameter</span><br><span class="line">NodeJS Plugin</span><br><span class="line">Publish Over SSH</span><br><span class="line">SSH server</span><br></pre></td></tr></table></figure>
+<h2 id="配置Nodejs版本"><a href="#配置Nodejs版本" class="headerlink" title="配置Nodejs版本"></a>配置Nodejs版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">系统管理 -&gt; 全局工具配置</span><br><span class="line">最下面, 起个别名, 选择版本, 保存</span><br></pre></td></tr></table></figure>
+<h2 id="配置github的token"><a href="#配置github的token" class="headerlink" title="配置github的token"></a>配置github的token</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">登录github, 点击头像, setting, 左侧最下面Developer settings</span><br><span class="line">Personal access tokens, Tokens (classic)</span><br><span class="line">创建一个(classic) token</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 系统配置</span><br><span class="line">找到github</span><br><span class="line">添加凭据,选择 Secret text</span><br><span class="line">粘贴github的token</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 全局安全配置</span><br><span class="line">最下面 Git Host Key Verification Configuration</span><br><span class="line">选择 No verification</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 系统配置</span><br><span class="line">Publish over SSH</span><br><span class="line">  SSH Servers</span><br><span class="line">  (配置远程服务器)</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">docker exec -it jenkins bash</span><br><span class="line">cd</span><br><span class="line">ssh-keygen</span><br><span class="line">回车</span><br><span class="line">cat .ssh/id_rsa.pub</span><br><span class="line">将这个ssh公钥配置到github的ssh上</span><br><span class="line">CTRL+a+d 退出容器</span><br></pre></td></tr></table></figure>
+<h2 id="创建blog"><a href="#创建blog" class="headerlink" title="创建blog"></a>创建blog</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Dashboard -&gt; 新建任务</span><br><span class="line">起名blog</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">配置blog</span><br><span class="line">参数化构建</span><br><span class="line">  git</span><br><span class="line">  名称 BRANCH</span><br><span class="line">  类型 分支</span><br><span class="line">  默认值 */master</span><br><span class="line">源码管理</span><br><span class="line">  git</span><br><span class="line">    Repository URL : git@github.com:w2216/xxxxxx.git</span><br><span class="line">    Credentials :</span><br><span class="line">      添加 Private Key</span><br><span class="line">      (这个key在jenkins容器里, 进去, cat .ssh/id_rsa)</span><br><span class="line">      保存, 选择这个Private Key</span><br><span class="line">    Branches to build</span><br><span class="line">    指定分支 $&#123;BRANCH&#125;</span><br><span class="line">Build Steps</span><br><span class="line">  选择nodejs</span><br></pre></td></tr></table></figure>
+<p>执行shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># npm cache clean --force</span><br><span class="line">rm -rf node_modules</span><br><span class="line">rm -rf package-lock.json</span><br><span class="line">rm -rf *.tar.gz</span><br><span class="line">rm -rf out</span><br><span class="line">ls -alh</span><br><span class="line">npm config set registry http://registry.npmmirror.com</span><br><span class="line">npm install</span><br><span class="line">export CI=false</span><br><span class="line">npm run export</span><br><span class="line">ls -alh</span><br><span class="line">cd out</span><br><span class="line">tar -zcvf $WORKSPACE/$BUILD_ID-$JOB_NAME.tar.gz *</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Send files or execute commands over SSH</span><br><span class="line">  Transfer Set Source files </span><br><span class="line">    *.tar.gz</span><br><span class="line">  Remote directory</span><br><span class="line">    /home/wwwroot/bak/</span><br></pre></td></tr></table></figure>
+<p>Exec command<br>(保存5次备份)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 备份目录</span><br><span class="line">BAKDIRNAME=/home/wwwroot/bak/</span><br><span class="line"># 工作目录</span><br><span class="line">WORKDIRNAME=/home/wwwroot/项目根目录地址/</span><br><span class="line">rm -rf $WORKDIRNAME/*</span><br><span class="line"></span><br><span class="line">cd $WORKDIRNAME</span><br><span class="line">cp $BAKDIRNAME/$BUILD_ID-$JOB_NAME.tar.gz ./</span><br><span class="line">tar -zxvf $BUILD_ID-$JOB_NAME.tar.gz</span><br><span class="line">rm  -rf $BUILD_ID-$JOB_NAME.tar.gz</span><br><span class="line"></span><br><span class="line">chown -R root:root *</span><br><span class="line">chmod -R 777 *</span><br><span class="line"></span><br><span class="line">cd /home/wwwroot/bak/</span><br><span class="line">echo &quot;开始删除超过5天的旧文件&quot;</span><br><span class="line">backup_copies=5</span><br><span class="line">FILENUM=`ls -lrt ./ | grep $JOB_NAME.tar.gz | wc -l`</span><br><span class="line">while [ $FILENUM -gt $backup_copies ]</span><br><span class="line">do</span><br><span class="line">        OLDEST_File=`ls -lrt ./| grep $JOB_NAME.tar.gz |awk &#x27;&#123;print $9&#125;&#x27; | head -1`</span><br><span class="line">        echo &quot;最旧的文件夹: $OLDEST_File&quot;</span><br><span class="line">        rm -rf $OLDEST_File</span><br><span class="line">        echo &quot;文件夹: $OLDEST_File已删除&quot;</span><br><span class="line">        let FILENUM--</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>xshell连接ssh显示服务器发送了一个意外的数据包</title>
@@ -151,29 +174,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">complete -W &quot;$(&lt;~/.ssh/hosts)&quot; ssh</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
 <p>ok</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Docker安装Jenkins和Jenkins部署nextjs项目</title>
-    <url>/projects/1430739081/</url>
-    <content><![CDATA[<h1 id="Docker安装Jenkins和Jenkins部署nextjs项目"><a href="#Docker安装Jenkins和Jenkins部署nextjs项目" class="headerlink" title="Docker安装Jenkins和Jenkins部署nextjs项目"></a>Docker安装Jenkins和Jenkins部署nextjs项目</h1><p>因阿里云轻量服务器(<code>1H2G</code>)性能不太行, 顾采用虚拟机编译</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir /root/docker/jenkins</span><br><span class="line">cd /root/docker/jenkins</span><br><span class="line"></span><br><span class="line">vim docker-compose.yml</span><br><span class="line">version: &quot;2&quot;</span><br><span class="line">services:</span><br><span class="line">  jenkins:</span><br><span class="line">    image: jenkins/jenkins:lts</span><br><span class="line">    container_name: &#x27;jenkins&#x27;</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 19280:8080</span><br><span class="line">      - 19281:50000</span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/var/jenkins_home</span><br><span class="line">      - /etc/localtime:/etc/localtime</span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<p>账号:<code>admin</code><br>密码:<code>cat data/secrets/initialAdminPassword</code></p>
-<p>第一次启动不用安装插件, 进去后需要什么自己安装</p>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>安装中文插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">manage(系统管理) -&gt; pluginManager(插件管理)</span><br><span class="line">available</span><br><span class="line">搜索 中文</span><br><span class="line">安装</span><br></pre></td></tr></table></figure>
-<p>重启jenkins<code>docker-compose restart</code></p>
-<p>安装插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GitHub plugin</span><br><span class="line">Git Parameter</span><br><span class="line">NodeJS Plugin</span><br><span class="line">Publish Over SSH</span><br><span class="line">SSH server</span><br></pre></td></tr></table></figure>
-<h2 id="配置Nodejs版本"><a href="#配置Nodejs版本" class="headerlink" title="配置Nodejs版本"></a>配置Nodejs版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">系统管理 -&gt; 全局工具配置</span><br><span class="line">最下面, 起个别名, 选择版本, 保存</span><br></pre></td></tr></table></figure>
-<h2 id="配置github的token"><a href="#配置github的token" class="headerlink" title="配置github的token"></a>配置github的token</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">登录github, 点击头像, setting, 左侧最下面Developer settings</span><br><span class="line">Personal access tokens, Tokens (classic)</span><br><span class="line">创建一个(classic) token</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 系统配置</span><br><span class="line">找到github</span><br><span class="line">添加凭据,选择 Secret text</span><br><span class="line">粘贴github的token</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 全局安全配置</span><br><span class="line">最下面 Git Host Key Verification Configuration</span><br><span class="line">选择 No verification</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">系统管理 -&gt; 系统配置</span><br><span class="line">Publish over SSH</span><br><span class="line">  SSH Servers</span><br><span class="line">  (配置远程服务器)</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">docker exec -it jenkins bash</span><br><span class="line">cd</span><br><span class="line">ssh-keygen</span><br><span class="line">回车</span><br><span class="line">cat .ssh/id_rsa.pub</span><br><span class="line">将这个ssh公钥配置到github的ssh上</span><br><span class="line">CTRL+a+d 退出容器</span><br></pre></td></tr></table></figure>
-<h2 id="创建blog"><a href="#创建blog" class="headerlink" title="创建blog"></a>创建blog</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Dashboard -&gt; 新建任务</span><br><span class="line">起名blog</span><br><span class="line">保存</span><br><span class="line"></span><br><span class="line">配置blog</span><br><span class="line">参数化构建</span><br><span class="line">  git</span><br><span class="line">  名称 BRANCH</span><br><span class="line">  类型 分支</span><br><span class="line">  默认值 */master</span><br><span class="line">源码管理</span><br><span class="line">  git</span><br><span class="line">    Repository URL : git@github.com:w2216/xxxxxx.git</span><br><span class="line">    Credentials :</span><br><span class="line">      添加 Private Key</span><br><span class="line">      (这个key在jenkins容器里, 进去, cat .ssh/id_rsa)</span><br><span class="line">      保存, 选择这个Private Key</span><br><span class="line">    Branches to build</span><br><span class="line">    指定分支 $&#123;BRANCH&#125;</span><br><span class="line">Build Steps</span><br><span class="line">  选择nodejs</span><br></pre></td></tr></table></figure>
-<p>执行shell</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># npm cache clean --force</span><br><span class="line">rm -rf node_modules</span><br><span class="line">rm -rf package-lock.json</span><br><span class="line">rm -rf *.tar.gz</span><br><span class="line">rm -rf out</span><br><span class="line">ls -alh</span><br><span class="line">npm config set registry http://registry.npmmirror.com</span><br><span class="line">npm install</span><br><span class="line">export CI=false</span><br><span class="line">npm run export</span><br><span class="line">ls -alh</span><br><span class="line">cd out</span><br><span class="line">tar -zcvf $WORKSPACE/$BUILD_ID-$JOB_NAME.tar.gz *</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Send files or execute commands over SSH</span><br><span class="line">  Transfer Set Source files </span><br><span class="line">    *.tar.gz</span><br><span class="line">  Remote directory</span><br><span class="line">    /home/wwwroot/bak/</span><br></pre></td></tr></table></figure>
-<p>Exec command<br>(保存5次备份)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 备份目录</span><br><span class="line">BAKDIRNAME=/home/wwwroot/bak/</span><br><span class="line"># 工作目录</span><br><span class="line">WORKDIRNAME=/home/wwwroot/项目根目录地址/</span><br><span class="line">rm -rf $WORKDIRNAME/*</span><br><span class="line"></span><br><span class="line">cd $WORKDIRNAME</span><br><span class="line">cp $BAKDIRNAME/$BUILD_ID-$JOB_NAME.tar.gz ./</span><br><span class="line">tar -zxvf $BUILD_ID-$JOB_NAME.tar.gz</span><br><span class="line">rm  -rf $BUILD_ID-$JOB_NAME.tar.gz</span><br><span class="line"></span><br><span class="line">chown -R root:root *</span><br><span class="line">chmod -R 777 *</span><br><span class="line"></span><br><span class="line">cd /home/wwwroot/bak/</span><br><span class="line">echo &quot;开始删除超过5天的旧文件&quot;</span><br><span class="line">backup_copies=5</span><br><span class="line">FILENUM=`ls -lrt ./ | grep $JOB_NAME.tar.gz | wc -l`</span><br><span class="line">while [ $FILENUM -gt $backup_copies ]</span><br><span class="line">do</span><br><span class="line">        OLDEST_File=`ls -lrt ./| grep $JOB_NAME.tar.gz |awk &#x27;&#123;print $9&#125;&#x27; | head -1`</span><br><span class="line">        echo &quot;最旧的文件夹: $OLDEST_File&quot;</span><br><span class="line">        rm -rf $OLDEST_File</span><br><span class="line">        echo &quot;文件夹: $OLDEST_File已删除&quot;</span><br><span class="line">        let FILENUM--</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 ]]></content>
   </entry>
   <entry>
@@ -1237,6 +1237,16 @@ false
 ]]></content>
   </entry>
   <entry>
+    <title>Redis安装</title>
+    <url>/projects/3388403801/</url>
+    <content><![CDATA[<h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://redis.io/download">https://redis.io/download</a></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="下载-安装"><a href="#下载-安装" class="headerlink" title="下载 安装"></a>下载 安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">建议安装在/usr/local/目录下</span><br><span class="line">$ wget https://download.redis.io/releases/redis-6.0.9.tar.gz</span><br><span class="line">$ tar xzf redis-6.0.9.tar.gz</span><br><span class="line">$ mv redis-6.0.9 /usr/local/redis</span><br><span class="line">$ cd redis-6.0.9</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /usr/local/redis/redis.conf</span><br><span class="line">	daemonize yes</span><br><span class="line">mkdir /etc/redis</span><br><span class="line">cp /usr/local/redis/redis.conf /etc/redis/6379.conf</span><br><span class="line">find / -name redis_init_script</span><br><span class="line">cp /usr/local/redis/utils/redis_init_script /etc/init.d/redis</span><br><span class="line">vi /etc/init.d/redis</span><br><span class="line"> 	REDISPORT=6379</span><br><span class="line">    EXEC=/usr/local/redis/bin/redis-server</span><br><span class="line">    CLIEXEC=/usr/local/redis/bin/redis-cli</span><br><span class="line"></span><br><span class="line">    PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid</span><br><span class="line">    CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</span><br><span class="line">service redis start/stop</span><br><span class="line">chkconfig redis on (开机启动)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>x96max+ armbian frp内网穿透 linux</title>
     <url>/projects/251151276/</url>
     <content><![CDATA[<h1 id="一-x96max-armbian-frp内网穿透-linux"><a href="#一-x96max-armbian-frp内网穿透-linux" class="headerlink" title="一. x96max+ armbian frp内网穿透 linux"></a>一. x96max+ armbian frp内网穿透 linux</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">写在牵头: </span><br><span class="line">遇到问题一定要百度!~  </span><br><span class="line">遇到问题一定要百度!~  </span><br><span class="line">遇到问题一定要百度!~</span><br><span class="line">参考文档: https://www.bilibili.com/read/cv5710744</span><br></pre></td></tr></table></figure>
@@ -1267,16 +1277,6 @@ false
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/rc.local  </span><br><span class="line">    lnmp restart  </span><br><span class="line">    nohup /root/frp/frp/frpc -c /root/frp/frp/frpc.ini &gt; /var/log/frp.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <p>服务端配置开机自启:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/rc.local</span><br><span class="line">    nohup /root/frp/frp/frps -c /root/frp/frp/frps.ini &gt; /var/log/frps.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>Redis安装</title>
-    <url>/projects/3388403801/</url>
-    <content><![CDATA[<h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://redis.io/download">https://redis.io/download</a></p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="下载-安装"><a href="#下载-安装" class="headerlink" title="下载 安装"></a>下载 安装</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">建议安装在/usr/local/目录下</span><br><span class="line">$ wget https://download.redis.io/releases/redis-6.0.9.tar.gz</span><br><span class="line">$ tar xzf redis-6.0.9.tar.gz</span><br><span class="line">$ mv redis-6.0.9 /usr/local/redis</span><br><span class="line">$ cd redis-6.0.9</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
-
-<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /usr/local/redis/redis.conf</span><br><span class="line">	daemonize yes</span><br><span class="line">mkdir /etc/redis</span><br><span class="line">cp /usr/local/redis/redis.conf /etc/redis/6379.conf</span><br><span class="line">find / -name redis_init_script</span><br><span class="line">cp /usr/local/redis/utils/redis_init_script /etc/init.d/redis</span><br><span class="line">vi /etc/init.d/redis</span><br><span class="line"> 	REDISPORT=6379</span><br><span class="line">    EXEC=/usr/local/redis/bin/redis-server</span><br><span class="line">    CLIEXEC=/usr/local/redis/bin/redis-cli</span><br><span class="line"></span><br><span class="line">    PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid</span><br><span class="line">    CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</span><br><span class="line">service redis start/stop</span><br><span class="line">chkconfig redis on (开机启动)</span><br></pre></td></tr></table></figure>
-
-]]></content>
   </entry>
   <entry>
     <title>Redis常用命令</title>
@@ -1962,17 +1962,6 @@ false
 ]]></content>
   </entry>
   <entry>
-    <title>screen命令</title>
-    <url>/projects/2070615891/</url>
-    <content><![CDATA[<h1 id="screen命令"><a href="#screen命令" class="headerlink" title="screen命令"></a>screen命令</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>yum install screen</p>
-<p>screen -v</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">screen -S yourname -&gt; 新建一个叫yourname的session</span><br><span class="line">screen -ls         -&gt; 列出当前所有的session</span><br><span class="line">screen -r yourname -&gt; 回到yourname这个session</span><br><span class="line">screen -d yourname -&gt; 远程detach某个session</span><br><span class="line">screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</span><br></pre></td></tr></table></figure>
-
-<h2 id="ctrl-a"><a href="#ctrl-a" class="headerlink" title="ctrl a"></a>ctrl a</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C-a ? -&gt; 显示所有键绑定信息</span><br><span class="line">C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口</span><br><span class="line">C-a n -&gt; Next，切换到下一个 window </span><br><span class="line">C-a p -&gt; Previous，切换到前一个 window </span><br><span class="line">C-a 0..9 -&gt; 切换到第 0..9 个 window</span><br><span class="line">Ctrl+a [Space] -&gt; 由视窗0循序切换到视窗9</span><br><span class="line">C-a C-a -&gt; 在两个最近使用的 window 间切换 </span><br><span class="line">C-a x -&gt; 锁住当前的 window，需用用户密码解锁</span><br><span class="line">C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。 </span><br><span class="line">C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。</span><br><span class="line">C-a w -&gt; 显示所有窗口列表</span><br><span class="line">C-a t -&gt; time，显示当前时间，和系统的 load </span><br><span class="line">C-a k -&gt; kill window，强行关闭当前的 window</span><br><span class="line">C-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样</span><br><span class="line">    C-b Backward，PageUp </span><br><span class="line">    C-f Forward，PageDown </span><br><span class="line">    H(大写) High，将光标移至左上角 </span><br><span class="line">    L Low，将光标移至左下角 </span><br><span class="line">    0 移到行首 </span><br><span class="line">    $ 行末 </span><br><span class="line">    w forward one word，以字为单位往前移 </span><br><span class="line">    b backward one word，以字为单位往后移 </span><br><span class="line">    Space 第一次按为标记区起点，第二次按为终点 </span><br><span class="line">    Esc 结束 copy mode </span><br><span class="line">C-a ] -&gt; paste，把刚刚在 copy mode 选定的内容贴上</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>phpstorm常用命令</title>
     <url>/projects/391340896/</url>
     <content><![CDATA[<h1 id="phpstorm常用命令"><a href="#phpstorm常用命令" class="headerlink" title="phpstorm常用命令"></a>phpstorm常用命令</h1><p>Ctrl + K 显示git commit界面</p>
@@ -1982,6 +1971,17 @@ false
 <p>Ctrl + G 定位行, 跳转行</p>
 <p>Ctrl + D 复制一行</p>
 <p>Ctrl + Shift + Alt + X 上传至云</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>screen命令</title>
+    <url>/projects/2070615891/</url>
+    <content><![CDATA[<h1 id="screen命令"><a href="#screen命令" class="headerlink" title="screen命令"></a>screen命令</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>yum install screen</p>
+<p>screen -v</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">screen -S yourname -&gt; 新建一个叫yourname的session</span><br><span class="line">screen -ls         -&gt; 列出当前所有的session</span><br><span class="line">screen -r yourname -&gt; 回到yourname这个session</span><br><span class="line">screen -d yourname -&gt; 远程detach某个session</span><br><span class="line">screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</span><br></pre></td></tr></table></figure>
+
+<h2 id="ctrl-a"><a href="#ctrl-a" class="headerlink" title="ctrl a"></a>ctrl a</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C-a ? -&gt; 显示所有键绑定信息</span><br><span class="line">C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口</span><br><span class="line">C-a n -&gt; Next，切换到下一个 window </span><br><span class="line">C-a p -&gt; Previous，切换到前一个 window </span><br><span class="line">C-a 0..9 -&gt; 切换到第 0..9 个 window</span><br><span class="line">Ctrl+a [Space] -&gt; 由视窗0循序切换到视窗9</span><br><span class="line">C-a C-a -&gt; 在两个最近使用的 window 间切换 </span><br><span class="line">C-a x -&gt; 锁住当前的 window，需用用户密码解锁</span><br><span class="line">C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。 </span><br><span class="line">C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。</span><br><span class="line">C-a w -&gt; 显示所有窗口列表</span><br><span class="line">C-a t -&gt; time，显示当前时间，和系统的 load </span><br><span class="line">C-a k -&gt; kill window，强行关闭当前的 window</span><br><span class="line">C-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样</span><br><span class="line">    C-b Backward，PageUp </span><br><span class="line">    C-f Forward，PageDown </span><br><span class="line">    H(大写) High，将光标移至左上角 </span><br><span class="line">    L Low，将光标移至左下角 </span><br><span class="line">    0 移到行首 </span><br><span class="line">    $ 行末 </span><br><span class="line">    w forward one word，以字为单位往前移 </span><br><span class="line">    b backward one word，以字为单位往后移 </span><br><span class="line">    Space 第一次按为标记区起点，第二次按为终点 </span><br><span class="line">    Esc 结束 copy mode </span><br><span class="line">C-a ] -&gt; paste，把刚刚在 copy mode 选定的内容贴上</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
