@@ -3060,4 +3060,44 @@ false
 <p>可以下载直刷包，USB启动包超级慢。。。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 下载 USB Burning Tool 和 github 直刷包 （阿里云盘）</span><br><span class="line">2. USB 连接电脑和玩客云</span><br><span class="line">3. 按着reset键插入电源</span><br><span class="line">4. 选择擦除所有和bootloader，点击开始</span><br><span class="line">5. 成功即完成</span><br><span class="line"></span><br><span class="line">若无法联网，执行ssh-kengen -A, </span><br><span class="line">apt install openssh-server openssh-client</span><br><span class="line">重启sshd：systemctl start sshd</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
+  <entry>
+    <title>minikube操作教程</title>
+    <url>/projects/3097062282/</url>
+    <content><![CDATA[<h1 id="minikube操作教程"><a href="#minikube操作教程" class="headerlink" title="minikube操作教程"></a>minikube操作教程</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://minikube.sigs.k8s.io/docs/start/">官方文档</a><br>amd64</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span><br><span class="line">sudo install minikube-linux-amd64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
+<p>arm64</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64</span><br><span class="line">sudo install minikube-linux-arm64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
+
+<p>没安装 <code>kubectl</code> 可以使用 <code>minikube kubectl --</code> 代替</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube start --force</span><br><span class="line">minikube stop</span><br><span class="line">minikube version</span><br><span class="line"></span><br><span class="line"># 开启web界面</span><br><span class="line"># 默认启的是本地端口, 可通过nginx反代出来</span><br><span class="line">minikube dashboard</span><br><span class="line"># eg: http://127.0.0.1:32893/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/</span><br></pre></td></tr></table></figure>
+
+<h2 id="kubectl安装"><a href="#kubectl安装" class="headerlink" title="kubectl安装"></a>kubectl安装</h2><p><a href="https://kubernetes.io/zh-cn/docs/tasks/tools/install-kubectl-linux/">官方文档</a><br>x86_64</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+<p>arm64</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</span><br></pre></td></tr></table></figure>
+<h2 id="kubectl其他"><a href="#kubectl其他" class="headerlink" title="kubectl其他"></a>kubectl其他</h2><p>hello-world</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl run hello-world -ti --rm --image=hello-world:latest --restart=Never --</span><br></pre></td></tr></table></figure>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl version</span><br><span class="line">kubectl cluster-info</span><br><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<p>创建一个nginx的deployment(从docker拉取镜像)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment nginx --image=nginx:latest</span><br></pre></td></tr></table></figure>
+<p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get deployments</span><br></pre></td></tr></table></figure>
+<p>删除</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete deployment nginx</span><br></pre></td></tr></table></figure>
+<p>列出pods</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods</span><br></pre></td></tr></table></figure>
+<p>查看pod状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pods</span><br></pre></td></tr></table></figure>
+<p>查看日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl logs &#123;pod_name&#125;</span><br><span class="line">kubectl logs -f nginx-654975c8cd-d4qg6</span><br></pre></td></tr></table></figure>
+<p>进入pod</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec nginx-654975c8cd-d4qg6 -- env</span><br><span class="line">kubectl exec -it nginx-654975c8cd-d4qg6 -- bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 8080</span><br><span class="line">kubectl describe deployment</span><br><span class="line">kubectl get pods -l app=nginx</span><br><span class="line">kubectl get services -l app=nginx</span><br><span class="line">kubectl label pods $POD_NAME version=v1</span><br><span class="line">kubectl describe pods $POD_NAME</span><br><span class="line">kubectl get pods -l version=v1</span><br><span class="line"></span><br><span class="line">kubectl delete service -l app=nginx</span><br><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+  </entry>
 </search>

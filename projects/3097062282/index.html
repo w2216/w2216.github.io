@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"blog.sddphp.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="mysql&#x2F;mysql-server 8.0 主从  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849cd dockermkdir -p mysql1&#x2F;config&#x2F; mysql2&#x2F;config&#x2F; mysql3&#x2F;config&#x2F;cp my.cnf mysql1&#x2F;confi">
+  <meta name="description" content="minikube操作教程安装官方文档amd64 12curl -LO https:&#x2F;&#x2F;storage.googleapis.com&#x2F;minikube&#x2F;releases&#x2F;latest&#x2F;minikube-linux-amd64sudo install minikube-linux-amd64 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;minikube arm64">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker mysql-server 8.0 主从">
-<meta property="og:url" content="https://blog.sddphp.cn/projects/33063304546/index.html">
+<meta property="og:title" content="minikube操作教程">
+<meta property="og:url" content="https://blog.sddphp.cn/projects/3097062282/index.html">
 <meta property="og:site_name" content="王站站">
-<meta property="og:description" content="mysql&#x2F;mysql-server 8.0 主从  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849cd dockermkdir -p mysql1&#x2F;config&#x2F; mysql2&#x2F;config&#x2F; mysql3&#x2F;config&#x2F;cp my.cnf mysql1&#x2F;confi">
+<meta property="og:description" content="minikube操作教程安装官方文档amd64 12curl -LO https:&#x2F;&#x2F;storage.googleapis.com&#x2F;minikube&#x2F;releases&#x2F;latest&#x2F;minikube-linux-amd64sudo install minikube-linux-amd64 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;minikube arm64">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-01T12:34:45.000Z">
-<meta property="article:modified_time" content="2023-04-18T12:16:32.710Z">
+<meta property="article:published_time" content="2018-04-08T17:04:09.000Z">
+<meta property="article:modified_time" content="2023-05-15T13:07:26.580Z">
 <meta property="article:author" content="Walsh">
 <meta property="article:tag" content="王站站的博客,个人博客分享,go,linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.sddphp.cn/projects/33063304546/">
+<link rel="canonical" href="https://blog.sddphp.cn/projects/3097062282/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>docker mysql-server 8.0 主从 | 王站站</title>
+  <title>minikube操作教程 | 王站站</title>
   
 
 
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.sddphp.cn/projects/33063304546/">
+    <link itemprop="mainEntityOfPage" href="https://blog.sddphp.cn/projects/3097062282/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/aaa.gif">
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          docker mysql-server 8.0 主从
+          minikube操作教程
         </h1>
 
         <div class="post-meta">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-01 20:34:45" itemprop="dateCreated datePublished" datetime="2021-06-01T20:34:45+08:00">2021-06-01</time>
+              <time title="创建时间：2018-04-09 01:04:09" itemprop="dateCreated datePublished" datetime="2018-04-09T01:04:09+08:00">2018-04-09</time>
             </span>
 
           <br>
@@ -212,7 +212,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -231,11 +231,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>mysql/mysql-server 8.0 主从 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">cd docker</span><br><span class="line">mkdir -p mysql1/config/ mysql2/config/ mysql3/config/</span><br><span class="line">cp my.cnf mysql1/config/ </span><br><span class="line">cp my.cnf mysql2/config/ </span><br><span class="line">cp my.cnf mysql3/config/</span><br><span class="line">chmod -R 755 mysql*</span><br><span class="line">docker run --name=mysql1 -v /root/docker/mysql1/config/my.cnf:/etc/my.cnf -v /root/docker/mysql1/data:/var/lib/mysql -d -p 19013:3306 mysql/mysql-server</span><br><span class="line">docker run --name=mysql2 -v /root/docker/mysql2/config/my.cnf:/etc/my.cnf -v /root/docker/mysql2/data:/var/lib/mysql -d -p 19014:3306 mysql/mysql-server</span><br><span class="line">docker run --name=mysql3 -v /root/docker/mysql3/config/my.cnf:/etc/my.cnf -v /root/docker/mysql3/data:/var/lib/mysql -d -p 19015:3306 mysql/mysql-server</span><br><span class="line">docker stop mysql1 mysql2 mysql3</span><br><span class="line">docker start mysql1 mysql2 mysql3</span><br><span class="line"><span class="meta">#</span><span class="bash"> status 为 healthy 说明启动成功</span></span><br><span class="line">docker logs mysql1 2&gt;&amp;1 | grep GENERATED</span><br><span class="line">docker logs mysql2 2&gt;&amp;1 | grep GENERATED</span><br><span class="line">docker logs mysql3 2&gt;&amp;1 | grep GENERATED</span><br><span class="line">docker exec -it mysql1 mysql -uroot -p</span><br><span class="line">docker exec -it mysql2 mysql -uroot -p</span><br><span class="line">docker exec -it mysql3 mysql -uroot -p</span><br><span class="line"><span class="meta">-&gt;</span><span class="bash">输入密码</span></span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;123456&#x27;;</span><br><span class="line">use mysql;</span><br><span class="line">update user set host=&#x27;%&#x27; where user =&#x27;root&#x27;;</span><br><span class="line">select host,user,plugin from user;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"><span class="meta">#</span><span class="bash"> master修改 --------------------------------------</span></span><br><span class="line">vim mysql1/config/my.cnf</span><br><span class="line">	[mysqld]</span><br><span class="line">	log-bin=/var/lib/mysql/binlog</span><br><span class="line">	server-id=1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入mysql1</span></span><br><span class="line">show master status;</span><br><span class="line"> binlog.000003 |      156</span><br><span class="line">CREATE USER &#x27;repl&#x27;@&#x27;172.24.20.1&#x27; IDENTIFIED WITH &#x27;mysql_native_password&#x27; BY &#x27;slavepass&#x27;;#创建用户</span><br><span class="line">GRANT REPLICATION SLAVE ON *.* TO &#x27;repl&#x27;@&#x27;172.24.20.1&#x27;;#分配权限</span><br><span class="line">flush privileges;   #刷新权限</span><br><span class="line"><span class="meta">#</span><span class="bash">slave修改 -----------------------------------------</span></span><br><span class="line">vim mysql2/config/my.cnf</span><br><span class="line">	[mysqld]</span><br><span class="line">	server-id=2 #设置server-id，必须唯一</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入slave</span></span><br><span class="line">CHANGE MASTER TO MASTER_HOST=&#x27;sddphp.cn&#x27;,</span><br><span class="line">　　MASTER_PORT=19013,</span><br><span class="line">　　MASTER_USER=&#x27;repl&#x27;,</span><br><span class="line">　　MASTER_PASSWORD=&#x27;slavepass&#x27;,</span><br><span class="line">　　MASTER_LOG_FILE=&#x27;binlog.000003&#x27;,</span><br><span class="line">　　MASTER_LOG_POS=5402; #后面两个参数的值与主库保持一致</span><br><span class="line">start slave;</span><br><span class="line">stop slave;</span><br><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
+        <h1 id="minikube操作教程"><a href="#minikube操作教程" class="headerlink" title="minikube操作教程"></a>minikube操作教程</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/start/">官方文档</a><br>amd64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span><br><span class="line">sudo install minikube-linux-amd64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
+<p>arm64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64</span><br><span class="line">sudo install minikube-linux-arm64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
 
-<p>laravel连不上mysql8.0?</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user &#x27;root&#x27;@&#x27;%&#x27; identified with mysql_native_password by &#x27;123456&#x27;;</span><br></pre></td></tr></table></figure>
+<p>没安装 <code>kubectl</code> 可以使用 <code>minikube kubectl --</code> 代替</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">minikube start --force</span><br><span class="line">minikube stop</span><br><span class="line">minikube version</span><br><span class="line"></span><br><span class="line"># 开启web界面</span><br><span class="line"># 默认启的是本地端口, 可通过nginx反代出来</span><br><span class="line">minikube dashboard</span><br><span class="line"># eg: http://127.0.0.1:32893/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/</span><br></pre></td></tr></table></figure>
+
+<h2 id="kubectl安装"><a href="#kubectl安装" class="headerlink" title="kubectl安装"></a>kubectl安装</h2><p><a target="_blank" rel="noopener" href="https://kubernetes.io/zh-cn/docs/tasks/tools/install-kubectl-linux/">官方文档</a><br>x86_64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+<p>arm64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</span><br></pre></td></tr></table></figure>
+<h2 id="kubectl其他"><a href="#kubectl其他" class="headerlink" title="kubectl其他"></a>kubectl其他</h2><p>hello-world</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run hello-world -ti --rm --image=hello-world:latest --restart=Never --</span><br></pre></td></tr></table></figure>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl version</span><br><span class="line">kubectl cluster-info</span><br><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<p>创建一个nginx的deployment(从docker拉取镜像)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create deployment nginx --image=nginx:latest</span><br></pre></td></tr></table></figure>
+<p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get deployments</span><br></pre></td></tr></table></figure>
+<p>删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete deployment nginx</span><br></pre></td></tr></table></figure>
+<p>列出pods</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods</span><br></pre></td></tr></table></figure>
+<p>查看pod状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pods</span><br></pre></td></tr></table></figure>
+<p>查看日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl logs &#123;pod_name&#125;</span><br><span class="line">kubectl logs -f nginx-654975c8cd-d4qg6</span><br></pre></td></tr></table></figure>
+<p>进入pod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec nginx-654975c8cd-d4qg6 -- env</span><br><span class="line">kubectl exec -it nginx-654975c8cd-d4qg6 -- bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 8080</span><br><span class="line">kubectl describe deployment</span><br><span class="line">kubectl get pods -l app=nginx</span><br><span class="line">kubectl get services -l app=nginx</span><br><span class="line">kubectl label pods $POD_NAME version=v1</span><br><span class="line">kubectl describe pods $POD_NAME</span><br><span class="line">kubectl get pods -l version=v1</span><br><span class="line"></span><br><span class="line">kubectl delete service -l app=nginx</span><br><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+
+
 
 
     </div>
@@ -254,12 +283,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/projects/575855887/" rel="prev" title="Laravel框架学习笔记">
-      <i class="fa fa-chevron-left"></i> Laravel框架学习笔记
+    <a href="/projects/2933601719/" rel="prev" title="ubuntu20.04系统dd成debian11并安装xray">
+      <i class="fa fa-chevron-left"></i> ubuntu20.04系统dd成debian11并安装xray
     </a></div>
       <div class="post-nav-item">
-    <a href="/projects/234786234/" rel="next" title="1天掌握docker -- B站阿良">
-      1天掌握docker -- B站阿良 <i class="fa fa-chevron-right"></i>
+    <a href="/projects/1583735170/" rel="next" title="JS复习">
+      JS复习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -319,6 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#minikube%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">minikube操作教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.2.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kubectl%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">kubectl安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kubectl%E5%85%B6%E4%BB%96"><span class="nav-number">1.4.</span> <span class="nav-text">kubectl其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.5.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
