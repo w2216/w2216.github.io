@@ -3065,39 +3065,87 @@ false
     <url>/projects/3097062282/</url>
     <content><![CDATA[<h1 id="minikube操作教程"><a href="#minikube操作教程" class="headerlink" title="minikube操作教程"></a>minikube操作教程</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://minikube.sigs.k8s.io/docs/start/">官方文档</a><br>amd64</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span><br><span class="line">sudo install minikube-linux-amd64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
+
 <p>arm64</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64</span><br><span class="line">sudo install minikube-linux-arm64 /usr/local/bin/minikube</span><br></pre></td></tr></table></figure>
 
-<p>没安装 <code>kubectl</code> 可以使用 <code>minikube kubectl --</code> 代替</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube start --force</span><br><span class="line">minikube stop</span><br><span class="line">minikube version</span><br><span class="line"></span><br><span class="line"># 开启web界面</span><br><span class="line"># 默认启的是本地端口, 可通过nginx反代出来</span><br><span class="line">minikube dashboard</span><br><span class="line"># eg: http://127.0.0.1:32893/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>没安装 <code>kubectl</code> 可以使用 <code>minikube kubectl --</code> 代替</li>
+</ul>
+<h2 id="启动你的集群"><a href="#启动你的集群" class="headerlink" title="启动你的集群"></a>启动你的集群</h2><p>开始</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube start --force</span><br><span class="line">kubectl get po -A</span><br><span class="line">minikube version</span><br></pre></td></tr></table></figure>
+
+<p>web界面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube dashboard --port=19888</span><br><span class="line"># eg: http://127.0.0.1:19888/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/</span><br></pre></td></tr></table></figure>
 
 <h2 id="kubectl安装"><a href="#kubectl安装" class="headerlink" title="kubectl安装"></a>kubectl安装</h2><p><a href="https://kubernetes.io/zh-cn/docs/tasks/tools/install-kubectl-linux/">官方文档</a><br>x86_64</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+
 <p>arm64</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl&quot;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</span><br></pre></td></tr></table></figure>
-<h2 id="kubectl其他"><a href="#kubectl其他" class="headerlink" title="kubectl其他"></a>kubectl其他</h2><p>hello-world</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl run hello-world -ti --rm --image=hello-world:latest --restart=Never --</span><br></pre></td></tr></table></figure>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl version</span><br><span class="line">kubectl cluster-info</span><br><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
-<p>创建一个nginx的deployment(从docker拉取镜像)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment nginx --image=nginx:latest</span><br></pre></td></tr></table></figure>
-<p>查看</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get deployments</span><br></pre></td></tr></table></figure>
-<p>删除</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete deployment nginx</span><br></pre></td></tr></table></figure>
-<p>列出pods</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods</span><br></pre></td></tr></table></figure>
-<p>查看pod状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe pods</span><br></pre></td></tr></table></figure>
-<p>查看日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl logs &#123;pod_name&#125;</span><br><span class="line">kubectl logs -f nginx-654975c8cd-d4qg6</span><br></pre></td></tr></table></figure>
-<p>进入pod</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl exec nginx-654975c8cd-d4qg6 -- env</span><br><span class="line">kubectl exec -it nginx-654975c8cd-d4qg6 -- bash</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 8080</span><br><span class="line">kubectl describe deployment</span><br><span class="line">kubectl get pods -l app=nginx</span><br><span class="line">kubectl get services -l app=nginx</span><br><span class="line">kubectl label pods $POD_NAME version=v1</span><br><span class="line">kubectl describe pods $POD_NAME</span><br><span class="line">kubectl get pods -l version=v1</span><br><span class="line"></span><br><span class="line">kubectl delete service -l app=nginx</span><br><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl version</span><br><span class="line">kubectl cluster-info</span><br><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
 
+<h2 id="helloworld"><a href="#helloworld" class="headerlink" title="helloworld"></a>helloworld</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl run hello-world -ti --rm --image=hello-world:latest --restart=Never --</span><br></pre></td></tr></table></figure>
 
+<h2 id="部署应用程序"><a href="#部署应用程序" class="headerlink" title="部署应用程序"></a>部署应用程序</h2><h3 id="services"><a href="#services" class="headerlink" title="services"></a>services</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment hello-minikube --type=NodePort --port=8080</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get services hello-minikube</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube service hello-minikube</span><br><span class="line">or</span><br><span class="line">kubectl port-forward service/hello-minikube 7080:8080</span><br></pre></td></tr></table></figure>
+
+<h3 id="loadBalancer"><a href="#loadBalancer" class="headerlink" title="loadBalancer"></a>loadBalancer</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment balanced --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment balanced --type=LoadBalancer --port=8080</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube tunnel</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get services balanced</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube addons enable ingress</span><br></pre></td></tr></table></figure>
+
+<p>…</p>
+<h2 id="管理你的集群"><a href="#管理你的集群" class="headerlink" title="管理你的集群"></a>管理你的集群</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube pause</span><br><span class="line">minikube unpause</span><br><span class="line">minikube stop</span><br><span class="line">minikube config set memory 9001</span><br><span class="line">minikube addons list</span><br><span class="line">minikube delete --all</span><br></pre></td></tr></table></figure>
+
+<h2 id="旅行指南"><a href="#旅行指南" class="headerlink" title="旅行指南"></a>旅行指南</h2><h3 id="基本控制"><a href="#基本控制" class="headerlink" title="基本控制"></a>基本控制</h3><p><a href="https://minikube.sigs.k8s.io/docs/handbook/controls/">文档</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube start</span><br><span class="line">minikube dashboard</span><br><span class="line">kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment hello-minikube --type=NodePort --port=8080</span><br><span class="line">minikube service hello-minikube</span><br><span class="line">minikube start --kubernetes-version=latest</span><br><span class="line">minikube start -p cluster2</span><br><span class="line">minikube stop</span><br><span class="line">minikube delete</span><br><span class="line">minikube delete --all</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署应用程序-1"><a href="#部署应用程序-1" class="headerlink" title="部署应用程序"></a>部署应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment hello-minikube1 --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment hello-minikube1 --type=LoadBalancer --port=8080</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube addons list</span><br><span class="line">minikube addons enable &lt;name&gt;</span><br><span class="line">minikube start --addons &lt;name1&gt; --addons &lt;name2&gt;</span><br><span class="line">minikube addons open &lt;name&gt;</span><br><span class="line">minikube addons disable &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Get pods</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube kubectl -- get pods</span><br><span class="line">minikube kubectl -- create deployment hello-minikube --image=kicbase/echo-server:1.0</span><br><span class="line">minikube kubectl -- expose deployment hello-minikube --type=NodePort --port=8080</span><br><span class="line">minikube kubectl -- --help</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问应用程序"><a href="#访问应用程序" class="headerlink" title="访问应用程序"></a>访问应用程序</h3><p>NodePort</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube service &lt;service-name&gt; --url</span><br><span class="line">kubectl create deployment hello-minikube1 --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment hello-minikube1 --type=NodePort --port=8080</span><br><span class="line">kubectl get svc</span><br><span class="line">minikube service hello-minikube1 --url</span><br><span class="line">ps -ef | grep docker@127.0.0.1</span><br><span class="line">http://127.0.0.1:TUNNEL_PORT</span><br></pre></td></tr></table></figure>
+
+<p>LoadBalancer</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube tunnel</span><br><span class="line">kubectl create deployment hello-minikube1 --image=kicbase/echo-server:1.0</span><br><span class="line">kubectl expose deployment hello-minikube1 --type=LoadBalancer --port=8080</span><br><span class="line">kubectl get svc</span><br><span class="line">http://REPLACE_WITH_EXTERNAL_IP:8080</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube tunnel --cleanup</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube config</span><br></pre></td></tr></table></figure>
+
+<h3 id="Dashboard"><a href="#Dashboard" class="headerlink" title="Dashboard"></a>Dashboard</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube dashboard</span><br><span class="line">minikube dashboard --port=19888</span><br><span class="line">minikube dashboard --url</span><br></pre></td></tr></table></figure>
+
+<h2 id="教程kubernetes101"><a href="#教程kubernetes101" class="headerlink" title="教程kubernetes101"></a>教程kubernetes101</h2><p><a href="https://minikube.sigs.k8s.io/docs/tutorials/kubernetes_101/">文档</a></p>
+<h3 id="创建一个-Kubernetes-集群"><a href="#创建一个-Kubernetes-集群" class="headerlink" title="创建一个 Kubernetes 集群"></a>创建一个 Kubernetes 集群</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube version</span><br><span class="line">minikube start</span><br><span class="line">kubectl version</span><br><span class="line">kubectl cluster-info</span><br><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署一个应用程序"><a href="#部署一个应用程序" class="headerlink" title="部署一个应用程序"></a>部署一个应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl create deployment nginx --image=nginx:latest</span><br><span class="line">kubectl get deployments</span><br><span class="line">kubectl proxy # 和minikube dashboard一样</span><br><span class="line">curl http://localhost:8001/version</span><br></pre></td></tr></table></figure>
+
+<h3 id="探索你的应用程序"><a href="#探索你的应用程序" class="headerlink" title="探索你的应用程序"></a>探索你的应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pods</span><br><span class="line">kubectl logs $POD_NAME</span><br><span class="line">kubectl exec $POD_NAME -- env</span><br><span class="line">kubectl exec -ti $POD_NAME -- bash</span><br><span class="line">curl localhost:80</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="公开你的应用程序"><a href="#公开你的应用程序" class="headerlink" title="公开你的应用程序"></a>公开你的应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods</span><br><span class="line">kubectl get services</span><br><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 80</span><br><span class="line">kubectl get services</span><br><span class="line">kubectl describe services/nginx</span><br><span class="line">curl $(minikube ip):$NODE_PORT</span><br><span class="line"></span><br><span class="line">kubectl describe deployment</span><br><span class="line">kubectl get pods -l app=nginx</span><br><span class="line">kubectl get services -l app=nginx</span><br><span class="line">kubectl label pods $POD_NAME version=v1</span><br><span class="line">kubectl describe pods $POD_NAME</span><br><span class="line">kubectl get pods -l version=v1</span><br><span class="line">kubectl delete service -l app=nginx</span><br><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+
+<h3 id="扩展你的应用程序"><a href="#扩展你的应用程序" class="headerlink" title="扩展你的应用程序"></a>扩展你的应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl expose deployment/nginx --type=&quot;NodePort&quot; --port 80</span><br><span class="line">kubectl get deployments</span><br><span class="line">kubectl get rs</span><br><span class="line">kubectl scale deployments/nginx --replicas=4</span><br><span class="line">kubectl get pods -o wide</span><br><span class="line">kubectl describe deployments/nginx</span><br></pre></td></tr></table></figure>
+
+<p>Load Balancing</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl describe services/nginx</span><br><span class="line">curl $(minikube ip):$NODE_PORT</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl scale deployments/nginx --replicas=2</span><br><span class="line">kubectl get deployments</span><br><span class="line">kubectl get pods -o wide</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新你的应用程序"><a href="#更新你的应用程序" class="headerlink" title="更新你的应用程序"></a>更新你的应用程序</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get deployments</span><br><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pods</span><br><span class="line">kubectl set image deployments/nginx nginx=nginx:v2</span><br><span class="line">kubectl get pods</span><br><span class="line">kubectl describe services/nginx</span><br><span class="line">kubectl rollout status deployments/nginx</span><br><span class="line">kubectl describe pods</span><br><span class="line"># 回滚</span><br><span class="line">kubectl set image deployments/nginx nginx=nginx:v10</span><br><span class="line">kubectl get deployments</span><br><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pods</span><br><span class="line">kubectl rollout undo deployments/nginx</span><br><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pods</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
