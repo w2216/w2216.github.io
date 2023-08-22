@@ -22,13 +22,13 @@
 
   <meta name="description" content="使用Let’s Encrypt的acme.sh申请泛域名证书Let’s Encrypt是一个非常不错的域名证书机构，致力于普及https，现在早已能够签发泛域名证书（俗称“野卡”），而且还是免费的，要知道其它机构的泛域名证书可贵的很。下面就简单介绍一下如何申请Let’s Encrypt证书。   安装acme.sh：在Linux下在线安装脚本，使用以下命令 1curl https:&#x2F;&#x2F;get.ac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Let&#39;s Encrypt的acme.sh申请泛域名证书">
+<meta property="og:title" content="使用acme.sh申请泛域名证书">
 <meta property="og:url" content="https://blog.sddphp.cn/projects/713541237/index.html">
 <meta property="og:site_name" content="王站站">
 <meta property="og:description" content="使用Let’s Encrypt的acme.sh申请泛域名证书Let’s Encrypt是一个非常不错的域名证书机构，致力于普及https，现在早已能够签发泛域名证书（俗称“野卡”），而且还是免费的，要知道其它机构的泛域名证书可贵的很。下面就简单介绍一下如何申请Let’s Encrypt证书。   安装acme.sh：在Linux下在线安装脚本，使用以下命令 1curl https:&#x2F;&#x2F;get.ac">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-01-21T17:01:22.000Z">
-<meta property="article:modified_time" content="2023-05-12T13:03:53.416Z">
+<meta property="article:modified_time" content="2023-08-22T17:43:38.469Z">
 <meta property="article:author" content="w">
 <meta property="article:tag" content="王站站的博客,个人博客分享,go,linux">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>使用Let's Encrypt的acme.sh申请泛域名证书 | 王站站</title>
+  <title>使用acme.sh申请泛域名证书 | 王站站</title>
   
 
 
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用Let's Encrypt的acme.sh申请泛域名证书
+          使用acme.sh申请泛域名证书
         </h1>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -237,21 +237,15 @@
 <p>或</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
 
-<h2 id="更改默认证书"><a href="#更改默认证书" class="headerlink" title="更改默认证书"></a>更改默认证书</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --set-default-ca  --server  letsencrypt</span><br></pre></td></tr></table></figure>
+<h2 id="更改默认证书"><a href="#更改默认证书" class="headerlink" title="更改默认证书"></a>更改默认证书</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># zerossl default</span><br><span class="line">acme.sh --register-account -m xxxxxxxx@qq.com</span><br><span class="line"></span><br><span class="line"># letsencrypt</span><br><span class="line"># acme.sh --set-default-ca  --server  letsencrypt</span><br></pre></td></tr></table></figure>
 
-<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><h3 id="域名提供商api自动解析"><a href="#域名提供商api自动解析" class="headerlink" title="域名提供商api自动解析"></a>域名提供商api自动解析</h3><p>腾讯</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export DP_Id=&quot;111111111111&quot;  </span><br><span class="line">export DP_Key=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
-<p>阿里</p>
+<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><h3 id="域名提供商api自动解析"><a href="#域名提供商api自动解析" class="headerlink" title="域名提供商api自动解析"></a>域名提供商api自动解析</h3><p>阿里</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export Ali_Key=&quot;111111111111&quot;  </span><br><span class="line">export Ali_Secret=&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="生成证书-1"><a href="#生成证书-1" class="headerlink" title="生成证书"></a>生成证书</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue --dns dns_ali  -d aabbcc.cn -d *.aabbcc.cn</span><br></pre></td></tr></table></figure>
 <h2 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h2><p>主域名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
-<p>泛域名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d *.aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/1.key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/1.fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d aabbcc.cn \</span><br><span class="line">--key-file /etc/nginx/cert/aabbcc.cn.key.pem \</span><br><span class="line">--fullchain-file /etc/nginx/cert/aabbcc.cn.fullchain.pem \</span><br><span class="line">--reloadcmd &quot;service nginx reload&quot;</span><br></pre></td></tr></table></figure>
 <h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><p>主域名配置</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他二级域名配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/222.aabbcc.cn</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  222.aabbcc.cn;</span><br><span class="line">    root         /home/wwwroot/222.aabbcc.cn;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name 222.aabbcc.cn;</span><br><span class="line">    ssl_certificate /etc/nginx/cert/1.fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/nginx/cert/1.key.pem;</span><br><span class="line">    </span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://222.aabbcc.cn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 
 <p>参考：<a target="_blank" rel="noopener" href="https://www.panyanbin.com/article/c44653d8.html">使用ACME申请证书（证书自动续期）</a></p>
@@ -395,7 +389,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:55</span>
+    <span title="站点阅读时长">2:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
