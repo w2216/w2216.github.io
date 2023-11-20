@@ -3172,4 +3172,33 @@ false
 <p>可以下载直刷包，USB启动包超级慢。。。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 下载 USB Burning Tool 和 github 直刷包 （阿里云盘）</span><br><span class="line">2. USB 连接电脑和玩客云</span><br><span class="line">3. 按着reset键插入电源</span><br><span class="line">4. 选择擦除所有和bootloader，点击开始</span><br><span class="line">5. 成功即完成</span><br><span class="line"></span><br><span class="line">若无法联网，执行ssh-kengen -A, </span><br><span class="line">apt install openssh-server openssh-client</span><br><span class="line">重启sshd：systemctl start sshd</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
+  <entry>
+    <title>fail2ban使用教程</title>
+    <url>/projects/275540922/</url>
+    <content><![CDATA[<h1 id="fail2ban使用教程"><a href="#fail2ban使用教程" class="headerlink" title="fail2ban使用教程"></a>fail2ban使用教程</h1><p><a href="https://github.com/fail2ban/fail2ban">地址</a></p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y iptables</span><br><span class="line">apt-get install -y fail2ban</span><br><span class="line">systemctl start fail2ban</span><br><span class="line">systemctl status fail2ban        # 查看fail2ban 是否正常启动</span><br><span class="line">systemctl enable fail2ban</span><br></pre></td></tr></table></figure>
+<p>配置<br>vim /etc/fail2ban/jail.local</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[sshd]               </span><br><span class="line">enabled = true     </span><br><span class="line">port = 22          </span><br><span class="line">filter = sshd       </span><br><span class="line">logpath = /var/log/auth.log  </span><br><span class="line">maxretry = 3       </span><br><span class="line">bantime = 1d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop fail2ban</span><br><span class="line">systemctl start fail2ban</span><br></pre></td></tr></table></figure>
+
+<p>查看 2022 年 10 月 16 日至 10 月 18 日的失败 ssh 登陆记录<br><code>lastb -s 2022-10-16 -t 2022-10-18</code><br>取消 ban 测试IP地址<br><code>fail2ban-client set sshd unbanip IP_ADDRESS</code><br>查看sshd的详细状态<br><code>fail2ban-client status sshd</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>onlyoffice使用教程</title>
+    <url>/projects/748695668/</url>
+    <content><![CDATA[<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>documentserver社区版免费<br><a href="https://github.com/ONLYOFFICE/DocumentServer">地址</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /root/docker/documentserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -i -t -d \</span><br><span class="line">--name onlyoffice \</span><br><span class="line">--restart=always \</span><br><span class="line">-e JWT_ENABLED=false \</span><br><span class="line">-p 8089:80 \</span><br><span class="line">-v /etc/localtime:/etc/localtime \</span><br><span class="line">-v /root/docker/documentserver/log:/var/log/onlyoffice  \</span><br><span class="line">-v /root/docker/documentserver/data:/var/www/onlyoffice/data  \</span><br><span class="line">-v /root/docker/documentserver/lib:/var/lib/onlyoffice \</span><br><span class="line">-v /root/docker/documentserver/db:/var/lib/postgresql \</span><br><span class="line">-d onlyoffice/documentserver</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置ip问题"><a href="#配置ip问题" class="headerlink" title="配置ip问题"></a>配置ip问题</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker cp  onlyoffice:/etc/onlyoffice/documentserver/default.json ./</span><br><span class="line"></span><br><span class="line">vim default.json</span><br><span class="line">搜索 `request-filtering-agent`</span><br><span class="line">两个值设置为`true`</span><br><span class="line"></span><br><span class="line">docker cp ./default.json onlyoffice:/etc/onlyoffice/documentserver/default.json</span><br></pre></td></tr></table></figure>
+
+<p>重启容器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># docker exec -it onlyoffice bin/bash</span><br><span class="line"># supervisorctl restart all</span><br><span class="line">docker restart onlyoffice</span><br></pre></td></tr></table></figure>
+
+<p>设置字体</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fonts从windows目录下拷贝</span><br><span class="line">C:\Windows\Fonts</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker cp fonts/ onlyoffice:/usr/share/fonts/</span><br><span class="line">docker exec -it onlyoffice bin/bash</span><br><span class="line">cd /usr/share/fonts/</span><br><span class="line">mv fonts/* ./</span><br><span class="line">/usr/bin/documentserver-generate-allfonts.sh</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
 </search>
